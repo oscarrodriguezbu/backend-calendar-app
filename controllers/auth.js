@@ -126,14 +126,16 @@ const revalidarToken = async (request, res = response) => {
     //console.log('Se requiere: /');
     /* const uid = request.uid;
     const name = request.name; */
-    const {uid, name} = request;
+    const { uid, name } = request;
 
-     //Generar JWT
-     const token = await generarJWT(uid, name);
+    //Generar JWT
+    const token = await generarJWT(uid, name);
 
     res.json({
         ok: true,
-        token, 
+        uid: uid,
+        name: name,
+        token,
     })
 }
 
